@@ -1,40 +1,20 @@
 # ☁️ Simulado AWS Developer Associate (DVA-C02)
 
-Simulado em **português** para a certificação **AWS Certified Developer – Associate (DVA-C02)**, feito com HTML/CSS/JS puro — sem frameworks, sem build step, roda direto no GitHub Pages.
+Simulado em **português** para a certificação **AWS Certified Developer – Associate (DVA-C02)**, feito com **HTML/CSS/JS puro** — sem frameworks, sem build step, roda direto no navegador.
 
 ## 🎯 Funcionalidades
 
-- 20 questões embaralhadas a cada sessão
+- 90 questões fixas (embaralhadas a cada sessão)
 - Tópicos: Lambda, DynamoDB, SQS, SNS, API Gateway, CloudFormation, IAM, X-Ray, Cognito, ECS, CodeDeploy, CodePipeline, Elastic Beanstalk, CloudWatch
 - Explicação detalhada após revelar a resposta
 - Pontuação por tópico ao final
 - Cronômetro de sessão
-- Nota mínima de aprovação: 72% (padrão AWS)
-- Design responsivo (mobile-friendly)
+- Nota mínima de aprovação: **72% (padrão AWS)**
+- Design responsivo e leve (mobile-friendly)
+- Interface intuitiva com botões **Anterior / Revelar / Próxima / Finalizar / Reiniciar**
 
-## 🚀 Deploy no GitHub Pages
+## 📁 Estrutura
 
-### Opção 1 – Interface Web (mais fácil)
-
-1. Crie um repositório no GitHub (ex: `aws-simulado`)
-2. Faça upload dos arquivos (`index.html`, `css/style.css`, `js/questions.js`, `js/app.js`)
-3. Vá em **Settings → Pages**
-4. Em **Source**, selecione `Deploy from a branch`
-5. Escolha `main` / `root` e clique **Save**
-6. Acesse: `https://seu-usuario.github.io/aws-simulado`
-
-### Opção 2 – Git CLI
-
-```bash
-git init
-git add .
-git commit -m "feat: simulado aws developer associate"
-git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/aws-simulado.git
-git push -u origin main
-```
-
-Depois ative o GitHub Pages nas configurações do repositório.
 
 ## 📁 Estrutura
 
