@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulado AWS Developer Associate – DVA-C02</title>
+  <meta name="description" content="Simulado em português para a certificação AWS Certified Developer - Associate (DVA-C02)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Favicon inline SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>" />
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="header">
+    <svg class="header-logo" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="60" rx="10" fill="#232F3E"/>
+      <path d="M30 12L14 22V38L30 48L46 38V22L30 12Z" fill="none" stroke="#FF9900" stroke-width="2.5"/>
+      <path d="M30 12V48M14 22L46 38M46 22L14 38" stroke="#FF9900" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <div class="header-title">
+      <h1>AWS Developer Associate</h1>
+      <p>Simulado DVA-C02 em Português</p>
+    </div>
+    <span class="header-badge">20 questões</span>
+  </header>
+
+  <!-- ── Quiz Screen ── -->
+  <div class="container" id="quiz-screen">
+
+    <!-- Progress -->
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="progress-text">0/20 respondidas</span>
+        <span style="color: var(--aws-orange); font-size: 0.78rem;">Aprovação: 72%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="card">
+      <div class="question-meta">
+        <span class="topic-badge" id="topic-badge">Lambda</span>
+        <span class="question-number" id="question-number">Questão 1 de 20</span>
+      </div>
+      <p class="question-text" id="question-text"></p>
+      <div class="options" id="options"></div>
+      <div class="explanation" id="explanation"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-row">
+      <button class="btn btn-ghost" id="btn-prev">← Anterior</button>
+      <div class="nav-row-center">
+        <button class="btn btn-reveal" id="btn-reveal" style="display:none">Ver Resposta</button>
+        <button class="btn btn-primary" id="btn-next">Próxima →</button>
+        <button class="btn btn-finish" id="btn-finish" style="display:none">Ver Resultado ✓</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Results Screen ── -->
+  <div class="container" id="results-screen">
+
+    <div class="results-hero">
+      <div class="score-pct" id="score-pct">0%</div>
+      <div class="score-label" id="score-label"></div>
+      <div class="score-detail" id="score-detail"></div>
+      <div class="score-time" id="score-time"></div>
+      <div class="pass-score" id="pass-score"></div>
+    </div>
+
+    <div class="breakdown-card">
+      <h3>Desempenho por Tópico</h3>
+      <div id="topic-breakdown"></div>
+    </div>
+
+    <div class="results-actions">
+      <button class="btn btn-primary" id="btn-restart">🔄 Novo Simulado</button>
+    </div>
+
+  </div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
