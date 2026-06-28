@@ -58,4 +58,4 @@ Edite `js/questions.js` e adicione objetos no array `questions`:
 
 ## 📄 Licença
 
-MIT — use, modifique e distribua livremente.
+MIT 
