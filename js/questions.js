@@ -258,8 +258,8 @@ const questions = [
     ],
     correct: 1,
     explanation: "Quando uma propriedade que requer replacement é alterada (ex: DBInstanceIdentifier, Engine no RDS), o CloudFormation cria um novo recurso e deleta o antigo. Para bancos de dados RDS, você pode usar DeletionPolicy: Snapshot para que o CloudFormation crie um snapshot antes de deletar, ou DeletionPolicy: Retain para manter o recurso mesmo após ser removido da stack. Nunca faça updates que causem replacement em bancos de dados de produção sem DeletionPolicy configurada."
-  }
-  ,{
+  },
+  {
   id: 21,
   topic: "Lambda",
   question: "Qual recurso do Lambda permite compartilhar bibliotecas entre várias funções sem duplicar código?",
@@ -388,8 +388,8 @@ const questions = [
   ],
   correct: 3,
   explanation: "O Service Map mostra graficamente os serviços envolvidos em uma requisição e o tempo gasto em cada um."
-}
-,{
+},
+{
   id: 31,
   topic: "Lambda",
   question: "Qual configuração reduz o impacto do cold start em funções Lambda críticas?",
@@ -518,8 +518,8 @@ const questions = [
   ],
   correct: 1,
   explanation: "Sampling Rules definem a porcentagem de requisições rastreadas, reduzindo custo e mantendo visibilidade estatística."
-}
-,{
+},
+{
   id: 41,
   topic: "Lambda",
   question: "Qual configuração permite que uma função Lambda acesse recursos dentro de uma VPC?",
@@ -648,8 +648,8 @@ const questions = [
   ],
   correct: 0,
   explanation: "Annotations permitem adicionar metadados customizados aos traces, facilitando filtros e análises."
-}
-,{
+},
+{
   id: 51,
   topic: "Lambda",
   question: "Qual recurso do Lambda permite executar funções em resposta a eventos de outros serviços AWS?",
@@ -778,8 +778,8 @@ const questions = [
   ],
   correct: 0,
   explanation: "Segments representam partes de uma requisição, como chamadas a serviços, permitindo análise detalhada de latência."
-}
-,{
+},
+{
   id: 61,
   topic: "Lambda",
   question: "Qual recurso do Lambda permite executar funções em horários programados sem depender de eventos externos?",
@@ -908,8 +908,8 @@ const questions = [
   ],
   correct: 0,
   explanation: "O Service Map mostra graficamente os serviços envolvidos e a latência acumulada em cada um, facilitando a identificação de gargalos."
-}
-,{
+},
+{
   id: 71,
   topic: "Lambda",
   question: "Qual recurso do Lambda permite controlar a quantidade máxima de memória usada pela função?",
