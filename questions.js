@@ -259,4 +259,914 @@ const questions = [
     correct: 1,
     explanation: "Quando uma propriedade que requer replacement é alterada (ex: DBInstanceIdentifier, Engine no RDS), o CloudFormation cria um novo recurso e deleta o antigo. Para bancos de dados RDS, você pode usar DeletionPolicy: Snapshot para que o CloudFormation crie um snapshot antes de deletar, ou DeletionPolicy: Retain para manter o recurso mesmo após ser removido da stack. Nunca faça updates que causem replacement em bancos de dados de produção sem DeletionPolicy configurada."
   }
-];
+  ,{
+  id: 21,
+  topic: "Lambda",
+  question: "Qual recurso do Lambda permite compartilhar bibliotecas entre várias funções sem duplicar código?",
+  options: [
+    "Layers",
+    "Aliases",
+    "Provisioned Concurrency",
+    "Environment Variables"
+  ],
+  correct: 0,
+  explanation: "Lambda Layers permitem compartilhar código e bibliotecas entre funções, reduzindo duplicação e facilitando manutenção."
+},
+{
+  id: 22,
+  topic: "DynamoDB",
+  question: "Qual recurso garante que uma tabela DynamoDB não seja apagada acidentalmente em um stack CloudFormation?",
+  options: [
+    "DeletionPolicy: Retain",
+    "UpdatePolicy: Preserve",
+    "SnapshotPolicy: Enabled",
+    "BackupPolicy: Keep"
+  ],
+  correct: 0,
+  explanation: "A propriedade DeletionPolicy: Retain instrui o CloudFormation a manter o recurso mesmo após ser removido do template."
+},
+{
+  id: 23,
+  topic: "S3",
+  question: "Qual configuração permite que objetos em um bucket S3 sejam automaticamente movidos para Glacier após 30 dias?",
+  options: [
+    "Bucket Policy",
+    "Lifecycle Rule",
+    "Replication Rule",
+    "Versioning"
+  ],
+  correct: 1,
+  explanation: "Lifecycle Rules permitem definir políticas de transição e expiração de objetos, como mover para Glacier após 30 dias."
+},
+{
+  id: 24,
+  topic: "API Gateway",
+  question: "Qual recurso do API Gateway permite limitar requisições por cliente usando chaves de API?",
+  options: [
+    "Usage Plans",
+    "Stage Variables",
+    "Lambda Authorizer",
+    "Resource Policies"
+  ],
+  correct: 0,
+  explanation: "Usage Plans permitem definir cotas e limites de requisições por chave de API, controlando o uso por cliente."
+},
+{
+  id: 25,
+  topic: "CloudWatch",
+  question: "Qual recurso do CloudWatch permite executar ações automáticas quando uma métrica atinge um limite?",
+  options: [
+    "CloudWatch Logs",
+    "CloudWatch Alarms",
+    "CloudWatch Dashboards",
+    "CloudWatch Events"
+  ],
+  correct: 1,
+  explanation: "CloudWatch Alarms monitoram métricas e podem disparar ações como enviar notificações ou executar Auto Scaling."
+},
+{
+  id: 26,
+  topic: "IAM",
+  question: "Qual prática é recomendada para conceder permissões mínimas necessárias a um usuário IAM?",
+  options: [
+    "Usar políticas gerenciadas pela AWS",
+    "Aplicar o princípio de menor privilégio",
+    "Dar permissões de administrador para evitar erros",
+    "Criar múltiplos usuários com credenciais compartilhadas"
+  ],
+  correct: 1,
+  explanation: "O princípio de menor privilégio garante que cada identidade tenha apenas as permissões necessárias para suas tarefas."
+},
+{
+  id: 27,
+  topic: "ECS",
+  question: "Qual recurso do ECS permite que containers obtenham credenciais temporárias da AWS sem armazenar chaves no código?",
+  options: [
+    "IAM Roles for Tasks",
+    "Secrets Manager",
+    "Parameter Store",
+    "Task Execution Role"
+  ],
+  correct: 0,
+  explanation: "IAM Roles for Tasks permitem que containers ECS assumam roles e obtenham credenciais temporárias da AWS com segurança."
+},
+{
+  id: 28,
+  topic: "Elastic Beanstalk",
+  question: "Qual política de deploy garante zero downtime criando um novo ambiente paralelo antes de substituir o antigo?",
+  options: [
+    "All at once",
+    "Rolling",
+    "Rolling with additional batch",
+    "Immutable"
+  ],
+  correct: 3,
+  explanation: "Immutable cria um novo ambiente paralelo e só substitui o antigo após o novo estar pronto, garantindo zero downtime."
+},
+{
+  id: 29,
+  topic: "Cognito",
+  question: "Qual recurso do Cognito permite autenticar usuários com provedores externos como Google ou Facebook?",
+  options: [
+    "User Pools",
+    "Identity Pools",
+    "Federation via IAM",
+    "STS AssumeRole"
+  ],
+  correct: 0,
+  explanation: "User Pools suportam federação com provedores externos, permitindo autenticação de usuários com Google, Facebook etc."
+},
+{
+  id: 30,
+  topic: "X-Ray",
+  question: "Qual recurso do X-Ray permite identificar o tempo gasto em cada serviço durante uma requisição?",
+  options: [
+    "Trace Segments",
+    "Annotations",
+    "Sampling Rules",
+    "Service Map"
+  ],
+  correct: 3,
+  explanation: "O Service Map mostra graficamente os serviços envolvidos em uma requisição e o tempo gasto em cada um."
+}
+,{
+  id: 31,
+  topic: "Lambda",
+  question: "Qual configuração reduz o impacto do cold start em funções Lambda críticas?",
+  options: [
+    "Provisioned Concurrency",
+    "Aumentar o timeout",
+    "Usar Layers",
+    "Executar em VPC"
+  ],
+  correct: 0,
+  explanation: "Provisioned Concurrency mantém instâncias pré-aquecidas da função Lambda, reduzindo a latência causada por cold starts."
+},
+{
+  id: 32,
+  topic: "DynamoDB",
+  question: "Qual recurso permite armazenar múltiplos tipos de dados relacionados em uma única tabela DynamoDB?",
+  options: [
+    "Partition Keys compostas",
+    "Single Table Design",
+    "Global Secondary Index",
+    "Streams"
+  ],
+  correct: 1,
+  explanation: "O padrão Single Table Design usa chaves compostas e índices para armazenar diferentes entidades em uma única tabela, otimizando consultas."
+},
+{
+  id: 33,
+  topic: "S3",
+  question: "Qual recurso do S3 garante que cada objeto tenha uma versão única ao ser atualizado?",
+  options: [
+    "Replication",
+    "Versioning",
+    "Lifecycle Rules",
+    "Encryption"
+  ],
+  correct: 1,
+  explanation: "O Versioning mantém múltiplas versões de um objeto, permitindo restaurar versões antigas e proteger contra exclusões acidentais."
+},
+{
+  id: 34,
+  topic: "API Gateway",
+  question: "Qual recurso permite transformar a requisição antes de enviá-la ao backend?",
+  options: [
+    "Usage Plans",
+    "Mapping Templates",
+    "Stage Variables",
+    "Resource Policies"
+  ],
+  correct: 1,
+  explanation: "Mapping Templates permitem modificar o payload da requisição usando Velocity Template Language (VTL) antes de chegar ao backend."
+},
+{
+  id: 35,
+  topic: "CloudWatch",
+  question: "Qual recurso do CloudWatch permite criar dashboards personalizados com métricas?",
+  options: [
+    "CloudWatch Logs",
+    "CloudWatch Dashboards",
+    "CloudWatch Alarms",
+    "CloudWatch Insights"
+  ],
+  correct: 1,
+  explanation: "CloudWatch Dashboards permitem visualizar métricas em gráficos personalizados para monitoramento em tempo real."
+},
+{
+  id: 36,
+  topic: "IAM",
+  question: "Qual recurso do IAM permite delegar permissões temporárias a usuários externos?",
+  options: [
+    "IAM Roles",
+    "IAM Groups",
+    "IAM Policies",
+    "IAM Users"
+  ],
+  correct: 0,
+  explanation: "IAM Roles podem ser assumidas por usuários externos ou serviços, concedendo permissões temporárias sem compartilhar credenciais."
+},
+{
+  id: 37,
+  topic: "ECS",
+  question: "Qual recurso do ECS permite executar containers sem gerenciar servidores?",
+  options: [
+    "EC2 Launch Type",
+    "Fargate Launch Type",
+    "Auto Scaling Group",
+    "Elastic Beanstalk"
+  ],
+  correct: 1,
+  explanation: "O Fargate Launch Type executa containers sem necessidade de gerenciar instâncias EC2, simplificando a operação."
+},
+{
+  id: 38,
+  topic: "Elastic Beanstalk",
+  question: "Qual recurso do Elastic Beanstalk permite configurar variáveis de ambiente para a aplicação?",
+  options: [
+    "Configuration Files (.ebextensions)",
+    "Scaling Policies",
+    "Deployment Policies",
+    "Health Checks"
+  ],
+  correct: 0,
+  explanation: "Arquivos .ebextensions permitem configurar variáveis de ambiente, pacotes e ajustes adicionais no ambiente Elastic Beanstalk."
+},
+{
+  id: 39,
+  topic: "Cognito",
+  question: "Qual recurso do Cognito fornece credenciais temporárias da AWS para usuários autenticados?",
+  options: [
+    "User Pools",
+    "Identity Pools",
+    "IAM Federation",
+    "STS AssumeRole"
+  ],
+  correct: 1,
+  explanation: "Identity Pools permitem trocar tokens de autenticação por credenciais temporárias da AWS, integrando com IAM roles."
+},
+{
+  id: 40,
+  topic: "X-Ray",
+  question: "Qual recurso do X-Ray permite reduzir o custo de rastreamento coletando apenas parte das requisições?",
+  options: [
+    "Annotations",
+    "Sampling Rules",
+    "Segments",
+    "Service Map"
+  ],
+  correct: 1,
+  explanation: "Sampling Rules definem a porcentagem de requisições rastreadas, reduzindo custo e mantendo visibilidade estatística."
+}
+,{
+  id: 41,
+  topic: "Lambda",
+  question: "Qual configuração permite que uma função Lambda acesse recursos dentro de uma VPC?",
+  options: [
+    "Provisioned Concurrency",
+    "VPC Configuration",
+    "Environment Variables",
+    "Layers"
+  ],
+  correct: 1,
+  explanation: "Ao configurar a Lambda com VPC, você define subnets e security groups, permitindo acesso a recursos privados como RDS ou ElastiCache."
+},
+{
+  id: 42,
+  topic: "DynamoDB",
+  question: "Qual recurso do DynamoDB permite capturar mudanças em tempo real na tabela?",
+  options: [
+    "Global Secondary Index",
+    "Streams",
+    "BatchGetItem",
+    "Scan"
+  ],
+  correct: 1,
+  explanation: "DynamoDB Streams capturam inserções, atualizações e exclusões em tempo real, podendo acionar funções Lambda para processar eventos."
+},
+{
+  id: 43,
+  topic: "S3",
+  question: "Qual recurso do S3 permite replicar objetos automaticamente entre regiões?",
+  options: [
+    "Cross-Region Replication",
+    "Lifecycle Rules",
+    "Versioning",
+    "Bucket Policy"
+  ],
+  correct: 0,
+  explanation: "Cross-Region Replication copia objetos de forma assíncrona entre buckets em diferentes regiões, útil para DR e compliance."
+},
+{
+  id: 44,
+  topic: "API Gateway",
+  question: "Qual recurso do API Gateway permite proteger endpoints com autenticação baseada em usuários?",
+  options: [
+    "Usage Plans",
+    "Lambda Authorizer",
+    "Cognito User Pools",
+    "Resource Policies"
+  ],
+  correct: 2,
+  explanation: "Cognito User Pools podem ser integrados ao API Gateway para autenticação de usuários via JWT tokens."
+},
+{
+  id: 45,
+  topic: "CloudWatch",
+  question: "Qual recurso do CloudWatch permite executar código em resposta a eventos?",
+  options: [
+    "CloudWatch Logs",
+    "CloudWatch Alarms",
+    "CloudWatch Events (EventBridge)",
+    "CloudWatch Dashboards"
+  ],
+  correct: 2,
+  explanation: "CloudWatch Events (EventBridge) permite reagir a eventos e acionar ações como invocar funções Lambda."
+},
+{
+  id: 46,
+  topic: "IAM",
+  question: "Qual recurso do IAM permite aplicar políticas automaticamente a múltiplos usuários?",
+  options: [
+    "IAM Roles",
+    "IAM Groups",
+    "IAM Policies",
+    "IAM Federation"
+  ],
+  correct: 1,
+  explanation: "IAM Groups permitem agrupar usuários e aplicar políticas de forma centralizada."
+},
+{
+  id: 47,
+  topic: "ECS",
+  question: "Qual recurso do ECS permite escalar automaticamente containers com base em métricas?",
+  options: [
+    "Service Auto Scaling",
+    "Task Definition",
+    "Cluster Capacity Providers",
+    "Elastic Load Balancer"
+  ],
+  correct: 0,
+  explanation: "Service Auto Scaling ajusta o número de tasks ECS com base em métricas como CPU ou memória."
+},
+{
+  id: 48,
+  topic: "Elastic Beanstalk",
+  question: "Qual recurso do Elastic Beanstalk permite configurar regras de escalabilidade automática?",
+  options: [
+    "Scaling Policies",
+    "Deployment Policies",
+    "Configuration Files",
+    "Health Checks"
+  ],
+  correct: 0,
+  explanation: "Scaling Policies permitem definir regras de Auto Scaling para aumentar ou reduzir instâncias conforme métricas."
+},
+{
+  id: 49,
+  topic: "Cognito",
+  question: "Qual recurso do Cognito permite adicionar atributos customizados ao perfil do usuário?",
+  options: [
+    "Identity Pools",
+    "User Pools",
+    "IAM Federation",
+    "STS AssumeRole"
+  ],
+  correct: 1,
+  explanation: "User Pools permitem definir atributos customizados além dos padrões, como telefone ou cargo."
+},
+{
+  id: 50,
+  topic: "X-Ray",
+  question: "Qual recurso do X-Ray permite adicionar informações customizadas para facilitar a análise de traces?",
+  options: [
+    "Annotations",
+    "Segments",
+    "Sampling Rules",
+    "Service Map"
+  ],
+  correct: 0,
+  explanation: "Annotations permitem adicionar metadados customizados aos traces, facilitando filtros e análises."
+}
+,{
+  id: 51,
+  topic: "Lambda",
+  question: "Qual recurso do Lambda permite executar funções em resposta a eventos de outros serviços AWS?",
+  options: [
+    "Event Source Mapping",
+    "Provisioned Concurrency",
+    "Layers",
+    "Environment Variables"
+  ],
+  correct: 0,
+  explanation: "Event Source Mapping conecta a Lambda a serviços como SQS, DynamoDB Streams e Kinesis, disparando execuções automaticamente."
+},
+{
+  id: 52,
+  topic: "DynamoDB",
+  question: "Qual recurso do DynamoDB permite limitar a taxa de leitura e escrita para evitar custos excessivos?",
+  options: [
+    "Auto Scaling",
+    "Provisioned Throughput",
+    "On-Demand Capacity",
+    "Global Tables"
+  ],
+  correct: 1,
+  explanation: "Provisioned Throughput define limites de RCUs e WCUs, controlando a taxa de leitura e escrita da tabela."
+},
+{
+  id: 53,
+  topic: "S3",
+  question: "Qual recurso do S3 permite hospedar um site estático diretamente em um bucket?",
+  options: [
+    "Bucket Policy",
+    "Static Website Hosting",
+    "Lifecycle Rules",
+    "Replication"
+  ],
+  correct: 1,
+  explanation: "Static Website Hosting transforma um bucket S3 em servidor de arquivos estáticos, acessível via endpoint público."
+},
+{
+  id: 54,
+  topic: "API Gateway",
+  question: "Qual recurso do API Gateway permite limitar requisições por segundo para proteger o backend?",
+  options: [
+    "Usage Plans",
+    "Throttling",
+    "Mapping Templates",
+    "Stage Variables"
+  ],
+  correct: 1,
+  explanation: "Throttling define limites de requisições por segundo e burst rate, protegendo o backend contra sobrecarga."
+},
+{
+  id: 55,
+  topic: "CloudWatch",
+  question: "Qual recurso do CloudWatch permite analisar logs com consultas SQL-like?",
+  options: [
+    "CloudWatch Logs",
+    "CloudWatch Insights",
+    "CloudWatch Alarms",
+    "CloudWatch Dashboards"
+  ],
+  correct: 1,
+  explanation: "CloudWatch Logs Insights permite consultas avançadas sobre logs usando sintaxe similar a SQL."
+},
+{
+  id: 56,
+  topic: "IAM",
+  question: "Qual recurso do IAM permite aplicar políticas baseadas em condições como horário ou IP de origem?",
+  options: [
+    "IAM Roles",
+    "IAM Policies com Condition",
+    "IAM Groups",
+    "IAM Federation"
+  ],
+  correct: 1,
+  explanation: "As IAM Policies suportam o bloco Condition, permitindo restringir acesso por horário, IP ou outros atributos."
+},
+{
+  id: 57,
+  topic: "ECS",
+  question: "Qual recurso do ECS permite distribuir tráfego entre múltiplas tasks de um serviço?",
+  options: [
+    "Elastic Load Balancer",
+    "Cluster Capacity Providers",
+    "Service Auto Scaling",
+    "Task Definition"
+  ],
+  correct: 0,
+  explanation: "Elastic Load Balancer distribui tráfego entre tasks ECS, garantindo alta disponibilidade e balanceamento."
+},
+{
+  id: 58,
+  topic: "Elastic Beanstalk",
+  question: "Qual recurso do Elastic Beanstalk permite configurar pacotes adicionais e ajustes no ambiente?",
+  options: [
+    "Configuration Files (.ebextensions)",
+    "Scaling Policies",
+    "Deployment Policies",
+    "Health Checks"
+  ],
+  correct: 0,
+  explanation: "Arquivos .ebextensions permitem instalar pacotes, configurar variáveis e ajustar o ambiente durante o deploy."
+},
+{
+  id: 59,
+  topic: "Cognito",
+  question: "Qual recurso do Cognito permite autenticar usuários sem precisar criar contas locais?",
+  options: [
+    "Federation com provedores externos",
+    "User Pools",
+    "Identity Pools",
+    "IAM Federation"
+  ],
+  correct: 0,
+  explanation: "A federação com provedores externos (Google, Facebook, etc.) permite autenticar usuários sem contas locais."
+},
+{
+  id: 60,
+  topic: "X-Ray",
+  question: "Qual recurso do X-Ray permite dividir uma requisição em partes para análise detalhada?",
+  options: [
+    "Segments",
+    "Annotations",
+    "Sampling Rules",
+    "Service Map"
+  ],
+  correct: 0,
+  explanation: "Segments representam partes de uma requisição, como chamadas a serviços, permitindo análise detalhada de latência."
+}
+,{
+  id: 61,
+  topic: "Lambda",
+  question: "Qual recurso do Lambda permite executar funções em horários programados sem depender de eventos externos?",
+  options: [
+    "CloudWatch Events (EventBridge)",
+    "Provisioned Concurrency",
+    "Layers",
+    "API Gateway Trigger"
+  ],
+  correct: 0,
+  explanation: "CloudWatch Events (EventBridge) permite agendar execuções de funções Lambda em intervalos regulares ou horários específicos."
+},
+{
+  id: 62,
+  topic: "DynamoDB",
+  question: "Qual recurso do DynamoDB permite replicar dados automaticamente entre múltiplas regiões?",
+  options: [
+    "Global Tables",
+    "Streams",
+    "Secondary Indexes",
+    "On-Demand Capacity"
+  ],
+  correct: 0,
+  explanation: "Global Tables replicam dados entre regiões, garantindo baixa latência e alta disponibilidade em aplicações globais."
+},
+{
+  id: 63,
+  topic: "S3",
+  question: "Qual recurso do S3 permite bloquear exclusões acidentais de objetos versionados?",
+  options: [
+    "Bucket Policy",
+    "MFA Delete",
+    "Lifecycle Rules",
+    "Replication"
+  ],
+  correct: 1,
+  explanation: "MFA Delete exige autenticação multifator para excluir versões de objetos, protegendo contra exclusões acidentais."
+},
+{
+  id: 64,
+  topic: "API Gateway",
+  question: "Qual recurso do API Gateway permite reduzir custos cacheando respostas de backend?",
+  options: [
+    "Stage Variables",
+    "Response Caching",
+    "Usage Plans",
+    "Mapping Templates"
+  ],
+  correct: 1,
+  explanation: "Response Caching armazena respostas em cache, reduzindo chamadas ao backend e melhorando desempenho."
+},
+{
+  id: 65,
+  topic: "CloudWatch",
+  question: "Qual recurso do CloudWatch permite correlacionar métricas e logs para análise avançada?",
+  options: [
+    "CloudWatch Logs",
+    "CloudWatch Alarms",
+    "CloudWatch Logs Insights",
+    "CloudWatch Dashboards"
+  ],
+  correct: 2,
+  explanation: "CloudWatch Logs Insights permite consultas avançadas em logs, correlacionando com métricas para diagnóstico detalhado."
+},
+{
+  id: 66,
+  topic: "IAM",
+  question: "Qual recurso do IAM permite conceder acesso temporário a serviços AWS sem criar usuários permanentes?",
+  options: [
+    "IAM Roles",
+    "IAM Groups",
+    "IAM Policies",
+    "IAM Federation"
+  ],
+  correct: 0,
+  explanation: "IAM Roles fornecem credenciais temporárias que podem ser assumidas por serviços ou usuários externos."
+},
+{
+  id: 67,
+  topic: "ECS",
+  question: "Qual recurso do ECS permite executar containers com diferentes requisitos de capacidade no mesmo cluster?",
+  options: [
+    "Capacity Providers",
+    "Service Auto Scaling",
+    "Task Definition",
+    "Elastic Load Balancer"
+  ],
+  correct: 0,
+  explanation: "Capacity Providers permitem definir diferentes estratégias de capacidade (EC2 ou Fargate) dentro de um mesmo cluster ECS."
+},
+{
+  id: 68,
+  topic: "Elastic Beanstalk",
+  question: "Qual recurso do Elastic Beanstalk permite monitorar a saúde das instâncias e reiniciá-las automaticamente?",
+  options: [
+    "Health Checks",
+    "Scaling Policies",
+    "Deployment Policies",
+    "Configuration Files"
+  ],
+  correct: 0,
+  explanation: "Health Checks monitoram a saúde das instâncias e reiniciam automaticamente aquelas que falham."
+},
+{
+  id: 69,
+  topic: "Cognito",
+  question: "Qual recurso do Cognito permite que usuários redefinam suas senhas de forma segura?",
+  options: [
+    "User Pools",
+    "Identity Pools",
+    "IAM Federation",
+    "STS AssumeRole"
+  ],
+  correct: 0,
+  explanation: "User Pools oferecem fluxo de redefinição de senha seguro, incluindo envio de código de verificação por email ou SMS."
+},
+{
+  id: 70,
+  topic: "X-Ray",
+  question: "Qual recurso do X-Ray permite visualizar a latência acumulada em cada serviço de uma aplicação distribuída?",
+  options: [
+    "Service Map",
+    "Annotations",
+    "Segments",
+    "Sampling Rules"
+  ],
+  correct: 0,
+  explanation: "O Service Map mostra graficamente os serviços envolvidos e a latência acumulada em cada um, facilitando a identificação de gargalos."
+}
+,{
+  id: 71,
+  topic: "Lambda",
+  question: "Qual recurso do Lambda permite controlar a quantidade máxima de memória usada pela função?",
+  options: [
+    "Timeout",
+    "Memory Allocation",
+    "Provisioned Concurrency",
+    "Layers"
+  ],
+  correct: 1,
+  explanation: "Cada função Lambda pode ser configurada com memória entre 128 MB e 10 GB, impactando também o poder de CPU disponível."
+},
+{
+  id: 72,
+  topic: "DynamoDB",
+  question: "Qual recurso do DynamoDB permite executar transações atômicas envolvendo múltiplos itens?",
+  options: [
+    "BatchGetItem",
+    "TransactWriteItems",
+    "Global Tables",
+    "Streams"
+  ],
+  correct: 1,
+  explanation: "TransactWriteItems permite operações atômicas envolvendo múltiplos itens e tabelas, garantindo consistência."
+},
+{
+  id: 73,
+  topic: "S3",
+  question: "Qual recurso do S3 permite restringir acesso a objetos apenas via CloudFront?",
+  options: [
+    "Bucket Policy",
+    "Origin Access Identity (OAI)",
+    "Lifecycle Rules",
+    "Replication"
+  ],
+  correct: 1,
+  explanation: "OAI permite que apenas o CloudFront acesse objetos do S3, protegendo contra acessos diretos ao bucket."
+},
+{
+  id: 74,
+  topic: "API Gateway",
+  question: "Qual recurso do API Gateway permite versionar diferentes ambientes da API?",
+  options: [
+    "Stages",
+    "Usage Plans",
+    "Mapping Templates",
+    "Resource Policies"
+  ],
+  correct: 0,
+  explanation: "Stages permitem criar ambientes separados (dev, test, prod) com configurações distintas para a mesma API."
+},
+{
+  id: 75,
+  topic: "CloudWatch",
+  question: "Qual recurso do CloudWatch permite reagir a alterações de estado em métricas?",
+  options: [
+    "CloudWatch Logs",
+    "CloudWatch Alarms",
+    "CloudWatch Dashboards",
+    "CloudWatch Insights"
+  ],
+  correct: 1,
+  explanation: "CloudWatch Alarms monitoram métricas e disparam ações quando valores ultrapassam limites definidos."
+},
+{
+  id: 76,
+  topic: "IAM",
+  question: "Qual recurso do IAM permite aplicar políticas automaticamente a múltiplos serviços AWS?",
+  options: [
+    "Service Control Policies (SCP)",
+    "IAM Roles",
+    "IAM Groups",
+    "IAM Federation"
+  ],
+  correct: 0,
+  explanation: "SCPs são aplicadas em nível de organização (AWS Organizations), controlando permissões de múltiplas contas e serviços."
+},
+{
+  id: 77,
+  topic: "ECS",
+  question: "Qual recurso do ECS permite executar containers em instâncias EC2 gerenciadas pelo usuário?",
+  options: [
+    "Fargate Launch Type",
+    "EC2 Launch Type",
+    "Capacity Providers",
+    "Service Auto Scaling"
+  ],
+  correct: 1,
+  explanation: "O EC2 Launch Type permite executar tasks ECS em instâncias EC2 provisionadas e gerenciadas pelo usuário."
+},
+{
+  id: 78,
+  topic: "Elastic Beanstalk",
+  question: "Qual recurso do Elastic Beanstalk permite configurar diferentes ambientes para a mesma aplicação?",
+  options: [
+    "Environment Tiers",
+    "Scaling Policies",
+    "Deployment Policies",
+    "Health Checks"
+  ],
+  correct: 0,
+  explanation: "Environment Tiers permitem criar ambientes distintos (Web Server ou Worker) para a mesma aplicação."
+},
+{
+  id: 79,
+  topic: "Cognito",
+  question: "Qual recurso do Cognito permite autenticar usuários via SMS ou email?",
+  options: [
+    "MFA (Multi-Factor Authentication)",
+    "User Pools",
+    "Identity Pools",
+    "IAM Federation"
+  ],
+  correct: 1,
+  explanation: "User Pools suportam autenticação via SMS ou email, incluindo MFA para maior segurança."
+},
+{
+  id: 80,
+  topic: "X-Ray",
+  question: "Qual recurso do X-Ray permite identificar gargalos em chamadas externas feitas pela Lambda?",
+  options: [
+    "Segments",
+    "Annotations",
+    "Service Map",
+    "Sampling Rules"
+  ],
+  correct: 0,
+  explanation: "Segments detalham chamadas externas, permitindo identificar latência ou falhas em serviços externos."
+},
+{
+  id: 81,
+  topic: "Lambda",
+  question: "Qual recurso do Lambda permite limitar o tempo máximo de execução da função?",
+  options: [
+    "Timeout",
+    "Memory Allocation",
+    "Provisioned Concurrency",
+    "Layers"
+  ],
+  correct: 0,
+  explanation: "O Timeout define o tempo máximo de execução da função, entre 1 segundo e 15 minutos."
+},
+{
+  id: 82,
+  topic: "DynamoDB",
+  question: "Qual recurso do DynamoDB permite criar índices locais baseados na chave de partição?",
+  options: [
+    "Global Secondary Index",
+    "Local Secondary Index",
+    "Streams",
+    "BatchGetItem"
+  ],
+  correct: 1,
+  explanation: "Local Secondary Index (LSI) permite criar índices adicionais baseados na mesma chave de partição da tabela."
+},
+{
+  id: 83,
+  topic: "S3",
+  question: "Qual recurso do S3 permite auditar acessos e operações realizadas em objetos?",
+  options: [
+    "Bucket Policy",
+    "Access Logs",
+    "Lifecycle Rules",
+    "Replication"
+  ],
+  correct: 1,
+  explanation: "Access Logs registram acessos e operações realizadas em objetos do bucket, úteis para auditoria e segurança."
+},
+{
+  id: 84,
+  topic: "API Gateway",
+  question: "Qual recurso do API Gateway permite proteger endpoints com regras de firewall?",
+  options: [
+    "Resource Policies",
+    "WAF Integration",
+    "Usage Plans",
+    "Mapping Templates"
+  ],
+  correct: 1,
+  explanation: "O AWS WAF pode ser integrado ao API Gateway para aplicar regras de firewall e proteger contra ataques."
+},
+{
+  id: 85,
+  topic: "CloudWatch",
+  question: "Qual recurso do CloudWatch permite criar alertas baseados em métricas customizadas?",
+  options: [
+    "CloudWatch Logs",
+    "CloudWatch Alarms",
+    "Custom Metrics",
+    "CloudWatch Dashboards"
+  ],
+  correct: 2,
+  explanation: "Custom Metrics permitem enviar métricas definidas pelo usuário ao CloudWatch e criar alarmes baseados nelas."
+},
+{
+  id: 86,
+  topic: "IAM",
+  question: "Qual recurso do IAM permite autenticar usuários corporativos via Active Directory?",
+  options: [
+    "IAM Federation",
+    "IAM Roles",
+    "IAM Groups",
+    "IAM Policies"
+  ],
+  correct: 0,
+  explanation: "IAM Federation permite autenticar usuários corporativos via Active Directory ou outros provedores de identidade."
+},
+{
+  id: 87,
+  topic: "ECS",
+  question: "Qual recurso do ECS permite definir como containers devem ser executados (imagem, CPU, memória)?",
+  options: [
+    "Task Definition",
+    "Service Auto Scaling",
+    "Capacity Providers",
+    "Elastic Load Balancer"
+  ],
+  correct: 0,
+  explanation: "Task Definition define os parâmetros de execução dos containers, como imagem, CPU, memória e variáveis de ambiente."
+},
+{
+  id: 88,
+  topic: "Elastic Beanstalk",
+  question: "Qual recurso do Elastic Beanstalk permite atualizar a aplicação sem downtime usando batches?",
+  options: [
+    "Rolling Deployments",
+    "Immutable Deployments",
+    "All at Once",
+    "Blue/Green Deployments"
+  ],
+  correct: 0,
+  explanation: "Rolling Deployments atualizam instâncias em lotes, evitando downtime durante o processo."
+},
+{
+  id: 89,
+  topic: "Cognito",
+  question: "Qual recurso do Cognito permite autenticação multifator para maior segurança?",
+  options: [
+    "User Pools",
+    "Identity Pools",
+    "MFA",
+    "IAM Federation"
+  ],
+  correct: 2,
+  explanation: "MFA adiciona uma camada extra de segurança exigindo múltiplos fatores de autenticação, como senha e código SMS."
+},
+{
+  id: 90,
+  topic: "X-Ray",
+  question: "Qual recurso do X-Ray permite visualizar estatísticas agregadas de múltiplos traces?",
+  options: [
+    "Service Map",
+    "Segments",
+    "Trace Summaries",
+    "Annotations"
+  ],
+  correct: 2,
+  explanation: "Trace Summaries mostram estatísticas agregadas de múltiplos traces, facilitando a análise de padrões de desempenho."
+}
+],
