@@ -13,8 +13,6 @@ Simulado em **português** para a certificação **AWS Certified Developer – A
 - Design responsivo e leve (mobile-friendly)
 - Interface intuitiva com botões **Anterior / Revelar / Próxima / Finalizar / Reiniciar**
 
-## 📁 Estrutura
-
 
 ## 📁 Estrutura
 
