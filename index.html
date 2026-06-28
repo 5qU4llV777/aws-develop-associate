@@ -1,79 +1,52 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Simulado AWS Developer Associate</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Logo" class="header-logo">
-    <div class="header-title">
-      <h1>Simulado AWS Developer Associate</h1>
-      <p>65 questões fixas</p>
-    </div>
-    <span id="topic-badge" class="header-badge"></span>
-  </header>
-
-  <!-- Container -->
-  <main class="container">
-    <!-- Quiz Screen -->
-    <div id="quiz-screen">
-      <!-- Progress -->
-      <div class="progress-wrap">
-        <div class="progress-meta">
-          <span id="progress-text"></span>
-        </div>
-        <div class="progress-track">
-          <div id="progress-bar" class="progress-bar"></div>
-        </div>
+<main class="container">
+  <!-- Tela do Quiz -->
+  <div id="quiz-screen">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="progress-text"></span>
       </div>
-
-      <!-- Question Card -->
-      <div class="card">
-        <div class="question-meta">
-          <span id="question-number" class="question-number"></span>
-        </div>
-        <p id="question-text" class="question-text"></p>
-        <div id="options" class="options"></div>
-        <div id="explanation" class="explanation"></div>
-      </div>
-
-      <!-- Navigation -->
-      <div class="nav-row">
-        <button id="btn-prev" class="btn btn-ghost">Anterior</button>
-        <div class="nav-row-center">
-          <button id="btn-reveal" class="btn btn-reveal">Revelar</button>
-          <button id="btn-next" class="btn btn-primary">Próxima</button>
-          <button id="btn-finish" class="btn btn-finish">Finalizar</button>
-        </div>
+      <div class="progress-track">
+        <div id="progress-bar" class="progress-bar"></div>
       </div>
     </div>
 
-    <!-- Results Screen -->
-    <div id="results-screen">
-      <div class="results-hero">
-        <div id="score-pct" class="score-pct"></div>
-        <div id="score-label" class="score-label"></div>
-        <div id="score-detail" class="score-detail"></div>
-        <div id="score-time" class="score-time"></div>
-        <div id="pass-score" class="pass-score"></div>
+    <div class="card">
+      <div class="question-meta">
+        <span id="topic-badge" class="topic-badge"></span>
+        <span id="question-number" class="question-number"></span>
       </div>
+      <p id="question-text" class="question-text"></p>
+      <div id="options" class="options"></div>
+      <div id="explanation" class="explanation"></div>
+    </div>
 
-      <div class="breakdown-card">
-        <h3>Desempenho por Tópico</h3>
-        <div id="topic-breakdown"></div>
-      </div>
-
-      <div class="results-actions">
-        <button id="btn-restart" class="btn btn-primary">Reiniciar</button>
+    <div class="nav-row">
+      <button id="btn-prev" class="btn btn-ghost">Anterior</button>
+      <div class="nav-row-center">
+        <button id="btn-reveal" class="btn btn-reveal">Revelar</button>
+        <button id="btn-next" class="btn btn-primary">Próxima</button>
+        <button id="btn-finish" class="btn btn-finish">Finalizar</button>
       </div>
     </div>
-  </main>
+  </div>
 
-  <!-- Scripts (ordem importa!) -->
-  <script src="js/questions.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+  <!-- Tela de Resultados -->
+  <div id="results-screen">
+    <div class="results-hero">
+      <div id="score-pct" class="score-pct"></div>
+      <div id="score-label" class="score-label"></div>
+      <div id="score-detail" class="score-detail"></div>
+      <div id="score-time" class="score-time"></div>
+      <div id="pass-score" class="pass-score"></div>
+    </div>
+
+    <div class="breakdown-card">
+      <h3>Desempenho por Tópico</h3>
+      <div id="topic-breakdown"></div>
+    </div>
+
+    <div class="results-actions">
+      <button id="btn-restart" class="btn btn-primary">Reiniciar</button>
+    </div>
+  </div>
+</main>
