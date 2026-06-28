@@ -1169,4 +1169,4 @@ const questions = [
   correct: 2,
   explanation: "Trace Summaries mostram estatísticas agregadas de múltiplos traces, facilitando a análise de padrões de desempenho."
 }
-],
+];
